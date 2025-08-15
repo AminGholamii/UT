@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> UTrello - Login </title>
+  <link rel="stylesheet" href="../css/login.css">
+</head>
+
+<body>
+    <a href="/" class="home">Go back to home page</a>
+    
+    <div class="container">
+        <section>
+          <h2>Login</h2>
+          <form action="/login" method="post">
+            <input type="text" name="username" placeholder="Username" />
+            <input type="password" name="password" placeholder="Password" />
+            <input type="submit" value="login" />
+          </form>
+        
+          <p class="signup-prompt">
+            Not already signed up? <a href="/signup">Signup first</a>
+          </p>
+
+          <% if (context["message"] == "OK") { %>
+            <br>
+            <p id="redirectMessage">Redirecting to dashboard...</p>
+          <% } %>
+
+        </section>
+
+        <div id="notification" class="notification-bar" style="display: none;">
+          <% std::cout << context["message"]; %>
+        </div>
+        
+      </div>
+      
+    <% if ( context["message"] == "OK" ){
+    %> 
+      <script>
+        notification.classList.add("success");
+        document.getElementById("notification").style.display = "block";
+        setTimeout(function() {
+          window.location.href = "/dashboard";
+        }, 3000);
+      </script>
+
+    <% }
+    else {
+      %>
+      <script>
+        document.getElementById("notification").style.display = "block";
+        setTimeout(function() {
+          document.getElementById("notification").style.display = "none";
+        }, 3000);
+      </script>
+
+    <% } %>
+
+  </body>
+
+</html>

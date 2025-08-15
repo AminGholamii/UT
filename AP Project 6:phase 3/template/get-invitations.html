@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" /> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
+    <title>UTrello - View Invitations</title>
+    <link rel="stylesheet" href="../css/get-invitations.css" />
+  </head>
+
+  <body>
+    <a href="/dashboard" class="dashboard">Go back to dashboard</a>
+    <div class="container">
+      <h1>View Invitations</h1>
+      <% 
+        if ( context["message"] != "OK" ) { 
+      %>
+          <h2 class="message">
+            <% std::cout << context["message"]; %>
+          </h2>
+      <% 
+        } else { 
+      %>
+          <div class="report">
+            <% std::cout << context["invitations_info"]; %>
+          </div>
+      <% } %>
+      
+      <div class="global-actions">
+        <a href="/reject-invitation" class="global-btn reject-btn" title="Reject">Reject an invitation</a>
+        <a href="/confirm-invitation" class="global-btn confirm-btn" title="Confirm">Confirm an invitation</a>
+      </div>
+    </div>
+  </body>
+
+</html>
+
+

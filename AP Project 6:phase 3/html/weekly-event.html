@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UTrello - Add Weekly Event</title>
+    <link rel="stylesheet" href="../css/event.css" />
+  </head>
+
+  <body>
+    <a href="/dashboard" class="dashboard">Go back to dashboard</a>
+    <div class="container">
+      <h1>Add Weekly Event</h1>
+      <form action="/weekly-event" method="post">
+        <div class="form-group">
+          <label for="startdate">Start Date:</label>
+          <input type="text" id="startdate" name="startdate" placeholder="Enter start date (Ex. 1404/01/01)" required />
+        </div>
+        <div class="form-group">
+          <label for="enddate">End Date:</label>
+          <input type="text" id="enddate" name="enddate" placeholder="Enter end date (Ex. 1404/01/07)" required />
+        </div>
+        <div class="form-group">
+          <label for="starttime">Start Time (Hour):</label>
+          <input type="number" id="starttime" name="starttime" min="0" max="23" placeholder="Enter start hour (0-23)" required />
+        </div>
+        <div class="form-group">
+          <label for="duration">Duration (Hour):</label>
+          <input type="number" id="duration" name="duration" min="1" max="24" placeholder="Enter duration in hours" required />
+        </div>
+        <div class="form-group">
+          <label>Weekdays:</label>
+          <div class="checkbox-group">
+            <label><input type="checkbox" name="weekday_Saturday" value="Saturday" /> Saturday</label>
+            <label><input type="checkbox" name="weekday_Sunday" value="Sunday" /> Sunday</label>
+            <label><input type="checkbox" name="weekday_Monday" value="Monday" /> Monday</label>
+            <label><input type="checkbox" name="weekday_Tuesday" value="Tuesday" /> Tuesday</label>
+            <label><input type="checkbox" name="weekday_Wednesday" value="Wednesday" /> Wednesday</label>
+            <label><input type="checkbox" name="weekday_Thursday" value="Thursday" /> Thursday</label>
+            <label><input type="checkbox" name="weekday_Friday" value="Friday" /> Friday</label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="title">Title:</label>
+          <input type="text" id="title" name="title" placeholder="Enter event title" required />
+        </div>
+        <div class="form-group">
+          <label for="description">Description:</label>
+          <textarea id="description" name="description" placeholder="Enter description (optional)"></textarea>
+        </div>
+        <button type="submit" class="submit-button">Add Weekly Event</button>
+      </form>
+    </div>
+  </body>
+
+</html>

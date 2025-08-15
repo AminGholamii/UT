@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UTrello - NotFound</title>
+    <link rel="stylesheet" href="../css/404.css">
+  </head>
+  <body>
+    <div class="container">
+      <div class="error-code">404</div>
+      <h1 class="error-message">Oops! Page Not Found</h1>
+      <br>
+      <p>We can't access or find the page you're looking for.</p>
+      <p> Try to login first.</p>
+      <br>
+      <a href="/" class="home-btn">Go Back Home</a>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        let countdownSeconds = 5;
+        const container = document.querySelector(".container");
+        const countdownDisplay = document.createElement("div");
+        countdownDisplay.style.marginTop = "20px";
+        countdownDisplay.style.fontSize = "1rem";
+        countdownDisplay.style.color = "#555";
+        countdownDisplay.textContent = `Redirecting in ${countdownSeconds} seconds...`;
+        container.appendChild(countdownDisplay);
+        const countdownInterval = setInterval(() => {
+          countdownSeconds--;
+          countdownDisplay.textContent = `Redirecting in ${countdownSeconds} seconds...`;
+          if (countdownSeconds <= 0) {
+            clearInterval(countdownInterval);
+            window.location.href = "/";
+          }
+        }, 1000);
+      });
+    </script>
+
+  </body>
+</html>
+

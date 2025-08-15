@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8" /> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UTrello - Report</title>
+    <link rel="stylesheet" href="../css/report.css" />
+  </head>
+
+  <body>
+    <a href="/dashboard" class="dashboard">Go back to dashboard</a>
+    <div class="container">
+      <h1>Report Events</h1>
+      <form action="/report" method="post" id="reportForm">
+        <div class="form-group">
+          <label for="startdate">Start Date:</label>
+          <input type="text" id="startdate" name="startdate" placeholder="Enter start date (Ex. 1404/01/01)" required />
+        </div>
+        <div class="form-group">
+          <label for="enddate">End Date:</label>
+          <input type="text" id="enddate" name="enddate" placeholder="Enter end date (Ex. 1404/07/01)" required />
+        </div>
+        <button type="submit" class="submit-button">Generate Report</button>
+      </form>
+
+      <% if ( context["message"] != "OK" ) { %>
+        <p id="notification" class="notification-bar error">
+          <% std::cout << context["message"]; %>
+        </p>
+        <script>
+          setTimeout(function() {
+            var errMsg = document.getElementById("notification");
+            if (errMsg) {
+              errMsg.style.display = "none";
+            }
+          }, 3000);
+        </script>
+      <% } %>
+    </div>
+
+      <div class="report-container">
+        <h2>Report: </h2>
+        <div class="notification-bar success">
+          <% if ( context["message"] == "OK" ) { 
+              std::cout << context["report"]; }%>
+        </div>
+      </div>
+
+  </body>
+
+</html>
+
+

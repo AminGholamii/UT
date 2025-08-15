@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UTrello - Reject Invitation</title>
+    <link rel="stylesheet" href="../css/confirm-reject.css" />
+  </head>
+
+  <body>
+    <div class="top-nav">
+      <a href="/dashboard" class="nav-btn">Go back to dashboard</a>
+      <a href="/get-invitations" class="nav-btn">Go back to view invitations</a>
+    </div>
+    <div class="container">
+      <h1>Reject Invitation</h1>
+      <form action="/reject-invitation" method="post">
+        <div class="form-group">
+          <label for="invitationId">Invitation ID:</label>
+          <input type="number" id="invitationId" name="invitationId" placeholder="Enter Invitation ID to reject" required />
+        </div>
+        <button type="submit" class="submit-button">Reject Invitation</button>
+      </form>
+    </div>
+  </body>
+
+</html>

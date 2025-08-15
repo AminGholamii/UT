@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> UTrello - Dashboard </title>
+    <link rel="stylesheet" href="../css/dashboard.css">
+  </head>
+
+  <body style="text-align: center; font-family: sans-serif;">
+    <h1> Welcome , <strong> <% std::cout << context["username"]; %> </strong>  </h1>
+    <br><br>
+    <div class="dashboard-explanation-container">
+      <p class="dashboard-explanation">
+        The dashboard is your central hub for managing everything on UTrello.
+        <br><br>
+        Here you can easily access tasks and events via different buttons.
+        <br><br>
+        Click on the Task button to add, edit, or delete tasks, or choose the Event buttons to add normal, joinable, or periodic events.
+         You can also view detailed reports and exit the dashboard whenever needed.
+        <br><br>
+        Use this space to quickly navigate through your day's priorities and stay organized.
+      </p>
+    </div>
+
+    <div class="dashboard">
+
+      <div class="button-group">
+        <button class="main-button" onclick="toggleDropdown('taskDropdown')">Task</button>
+        <div id="taskDropdown" class="dropdown-content">
+          <a href="/add-task">Add Task</a>
+          <a href="/edit-task">Edit Task</a>
+          <a href="/delete-task">Delete Task</a>
+        </div>
+      </div>
+
+      <div class="button-group">
+        <button class="main-button" onclick="toggleDropdown('normalEventDropdown')">Normal Event</button>
+        <div id="normalEventDropdown" class="dropdown-content">
+          <a href="/normal-event">Add Normal Event</a>
+        </div>
+      </div>
+
+      <div class="button-group">
+        <button class="main-button" onclick="toggleDropdown('periodicEventDropdown')">Periodic Event</button>
+        <div id="periodicEventDropdown" class="dropdown-content">
+          <a href="/weekly-event">Add Weekly Event</a>
+        </div>
+      </div>
+      
+      <div class="button-group">
+        <button class="main-button" onclick="toggleDropdown('joinEventDropdown')">Join Event</button>
+        <div id="joinEventDropdown" class="dropdown-content">
+          <a href="/add-join-event">Send Invitation</a>
+          <a href="/get-invitations">See Invitations</a>
+        </div>
+      </div>
+
+      <form action="/report" method="get"> 
+        <button class="main-button">Report</button>
+      </form>
+      
+      <form action="/logout" method="post">
+        <button class="main-button exit-button">LogOut</button>
+      </form>
+    </div>
+    
+    <script>
+      function toggleDropdown(id) {
+        var dropdown = document.getElementById(id);
+        if (dropdown.style.display === "block") {
+          dropdown.style.display = "none";
+        } 
+        else {
+          var dropdowns = document.getElementsByClassName("dropdown-content");
+          for (var i = 0; i < dropdowns.length; i++) {
+            dropdowns[i].style.display = "none";
+          }
+          dropdown.style.display = "block";
+        }
+      }
+      
+      window.onclick = function(e) {
+        if (!e.target.matches('.main-button')) {
+          var dropdowns = document.getElementsByClassName("dropdown-content");
+          for (var i = 0; i < dropdowns.length; i++) {
+            dropdowns[i].style.display = "none";
+          }
+        }
+      };
+    </script>
+
+  </body>
+</html>
