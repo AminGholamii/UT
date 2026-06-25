@@ -1,0 +1,28 @@
+Success: Table users created successfully
+Success: Record inserted into table successfully
+Success: Record inserted into table successfully
+Success: Record inserted into table successfully
+Error: Missing value for required field
+Success: Record inserted into table successfully
+Success: Records updated in table
+Success: Records updated in table
+Success: Records updated in table
+1. young
+1. young : mashhad
+2. young : mashhad
+3. young : mashhad
+1. young : 22 : mashhad
+2. young : 18 : mashhad
+3. parisa : 30 : tabriz
+4. young : 23 : mashhad
+Success: Table students created successfully
+Success: Record inserted into table successfully
+Success: Record inserted into table successfully
+Error: Missing value for required field
+Success: Records updated in table
+Success: Records updated in table
+1. updated
+1. updated : alizadeh
+Success: Table users deleted successfully
+Error: Table users does not exist
+Error: Table users does not exist

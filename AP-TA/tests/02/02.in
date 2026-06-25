@@ -1,0 +1,30 @@
+create_table users name string required; age int optional; city string optional
+insert into users name:amin; age:22; city:tehran
+insert into users name:kourosh; age:18; city:shiraz
+insert into users name:parisa; age:30; city:tabriz
+
+insert into users age:20; city:rasht
+insert into users name:amin; age:23
+
+update users where age = 18 set city esfahan
+update users where age < 25 set name young
+update users where age != 30 set city mashhad
+
+select name from users where age = 22
+select name;city from users where age != 30
+select name;age;city from users where age < 40
+
+create_enhanced_table students student_id int required; name string optional; last_name string optional
+insert into students student_id:2; name:parisa; last_name:yahyapour
+insert into students student_id:1; name:amin; last_name:gholami
+insert into students name:reza; last_name:karimi
+
+update students where students_id = 1 set last_name alizadeh
+update students where student_id < 3 set name updated
+
+select name from students where student_id = 1
+select name;last_name from students where student_id != 2
+
+drop_table users
+select name from users where age = 22
+drop_table users
